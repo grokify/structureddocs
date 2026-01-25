@@ -44,13 +44,13 @@ func TestValidateDate(t *testing.T) {
 	}
 
 	invalid := []string{
-		"2024-13-01",   // Invalid month
-		"2024-01-32",   // Invalid day
-		"01-15-2024",   // Wrong format
-		"2024/01/15",   // Wrong separator
-		"2024-1-15",    // Missing leading zero
-		"not-a-date",   // Not a date
-		"",             // Empty
+		"2024-13-01", // Invalid month
+		"2024-01-32", // Invalid day
+		"01-15-2024", // Wrong format
+		"2024/01/15", // Wrong separator
+		"2024-1-15",  // Missing leading zero
+		"not-a-date", // Not a date
+		"",           // Empty
 	}
 
 	for _, v := range valid {
@@ -74,11 +74,11 @@ func TestValidateCVE(t *testing.T) {
 	}
 
 	invalid := []string{
-		"CVE-24-12345",    // Year too short
-		"CVE-2024-123",    // ID too short
-		"cve-2024-12345",  // Wrong case
-		"CVE2024-12345",   // Missing hyphen
-		"",                // Empty
+		"CVE-24-12345",   // Year too short
+		"CVE-2024-123",   // ID too short
+		"cve-2024-12345", // Wrong case
+		"CVE2024-12345",  // Missing hyphen
+		"",               // Empty
 	}
 
 	for _, v := range valid {
