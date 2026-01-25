@@ -2,7 +2,6 @@
 
 [![Build Status][build-status-svg]][build-status-url]
 [![Lint Status][lint-status-svg]][lint-status-url]
-[![Coverage][coverage-svg]][coverage-url]
 [![Go Report Card][goreport-svg]][goreport-url]
 [![Docs][docs-godoc-svg]][docs-godoc-url]
 [![Visualization][viz-svg]][viz-url]
@@ -227,8 +226,6 @@ MIT License
  [build-status-url]: https://github.com/grokify/structureddocs/actions/workflows/ci.yaml
  [lint-status-svg]: https://github.com/grokify/structureddocs/actions/workflows/lint.yaml/badge.svg?branch=main
  [lint-status-url]: https://github.com/grokify/structureddocs/actions/workflows/lint.yaml
- [coverage-svg]: https://img.shields.io/badge/coverage-96.1%25-brightgreen
- [coverage-url]: https://github.com/grokify/structureddocs
  [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/structureddocs
  [goreport-url]: https://goreportcard.com/report/github.com/grokify/structureddocs
  [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/structureddocs
