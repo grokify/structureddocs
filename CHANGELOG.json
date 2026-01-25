@@ -1,0 +1,32 @@
+{
+  "ir_version": "1.0",
+  "project": "structureddocs",
+  "repository": "https://github.com/grokify/structureddocs",
+  "versioning": "semver",
+  "commit_convention": "conventional",
+  "maintainers": ["grokify", "johncwang@gmail.com"],
+  "releases": [
+    {
+      "version": "v0.1.0",
+      "date": "2026-01-25",
+      "highlights": [
+        { "description": "Initial release of structureddocs shared utilities for structured document rendering" }
+      ],
+      "added": [
+        { "description": "Marp presentation rendering utilities with theme support", "commit": "1936103" },
+        { "description": "Template helper functions: `progressBar`, `progressBarLen`, `scorePercent`, `statusIcon`, `priorityIcon`, `severityIcon`", "commit": "1936103" },
+        { "description": "Template functions for progress, status, and priority: `progressPercent`, `statusEmoji`, `statusLabel`, `priorityLabel`", "commit": "3afd17e" },
+        { "description": "Three built-in themes: `default`, `corporate`, `minimal`", "commit": "1936103" },
+        { "description": "Document validation framework with configurable rules", "commit": "1936103" },
+        { "description": "README with badges for CI, coverage, and documentation", "commit": "00fcab7" }
+      ],
+      "changed": [
+        { "description": "Update default theme colors for better visual consistency (primary: `#5a67d8`, accent: `#7f9cf5`)", "commit": "3afd17e" }
+      ],
+      "internal": [
+        { "description": "Update golangci Go version to 1.24", "commit": "1cef25f" },
+        { "description": "Apply gofmt formatting to validation tests", "commit": "49f4158" }
+      ]
+    }
+  ]
+}
