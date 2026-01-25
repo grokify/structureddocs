@@ -7,10 +7,10 @@ func TestGetTheme(t *testing.T) {
 		name     string
 		expected string
 	}{
-		{"default", "#4c51bf"},
+		{"default", "#5a67d8"},
 		{"corporate", "#1a365d"},
 		{"minimal", "#2d3748"},
-		{"unknown", "#4c51bf"}, // Falls back to default
+		{"unknown", "#5a67d8"}, // Falls back to default
 	}
 
 	for _, tt := range tests {
