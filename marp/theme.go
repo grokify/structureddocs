@@ -30,12 +30,12 @@ type ThemeConfig struct {
 var DefaultThemes = map[string]ThemeConfig{
 	"default": {
 		Name:             "default",
-		PrimaryBgColor:   "#4c51bf",
+		PrimaryBgColor:   "#5a67d8",
 		PrimaryTextColor: "#ffffff",
-		AccentColor:      "#667eea",
-		SuccessColor:     "#38a169",
-		WarningColor:     "#d69e2e",
-		DangerColor:      "#e53e3e",
+		AccentColor:      "#7f9cf5",
+		SuccessColor:     "#48bb78",
+		WarningColor:     "#ed8936",
+		DangerColor:      "#f56565",
 	},
 	"corporate": {
 		Name:             "default",

@@ -9,30 +9,34 @@ import (
 // CommonFuncMap provides template functions used across all Marp renderers.
 // Import this into your template.FuncMap to ensure consistent behavior.
 var CommonFuncMap = template.FuncMap{
-	"add":            Add,
-	"sub":            Sub,
-	"mul":            Mul,
-	"div":            Div,
-	"truncate":       Truncate,
-	"progressBar":    ProgressBar,
-	"progressBarLen": ProgressBarLen,
-	"scorePercent":   ScorePercent,
-	"statusIcon":     StatusIcon,
-	"priorityIcon":   PriorityIcon,
-	"severityIcon":   SeverityIcon,
-	"join":           strings.Join,
-	"upper":          strings.ToUpper,
-	"lower":          strings.ToLower,
-	"title":          strings.Title, //nolint:staticcheck
-	"hasPrefix":      strings.HasPrefix,
-	"hasSuffix":      strings.HasSuffix,
-	"contains":       strings.Contains,
-	"replace":        strings.ReplaceAll,
-	"trim":           strings.TrimSpace,
-	"default":        Default,
-	"coalesce":       Coalesce,
-	"ternary":        Ternary,
-	"seq":            Seq,
+	"add":             Add,
+	"sub":             Sub,
+	"mul":             Mul,
+	"div":             Div,
+	"truncate":        Truncate,
+	"progressBar":     ProgressBar,
+	"progressBarLen":  ProgressBarLen,
+	"progressPercent": ProgressPercent,
+	"scorePercent":    ScorePercent,
+	"statusIcon":      StatusIcon,
+	"statusEmoji":     StatusEmoji,
+	"statusLabel":     StatusLabel,
+	"priorityIcon":    PriorityIcon,
+	"priorityLabel":   PriorityLabel,
+	"severityIcon":    SeverityIcon,
+	"join":            strings.Join,
+	"upper":           strings.ToUpper,
+	"lower":           strings.ToLower,
+	"title":           strings.Title, //nolint:staticcheck
+	"hasPrefix":       strings.HasPrefix,
+	"hasSuffix":       strings.HasSuffix,
+	"contains":        strings.Contains,
+	"replace":         strings.ReplaceAll,
+	"trim":            strings.TrimSpace,
+	"default":         Default,
+	"coalesce":        Coalesce,
+	"ternary":         Ternary,
+	"seq":             Seq,
 }
 
 // Add returns a + b.
@@ -94,21 +98,27 @@ func ScorePercent(score float64) string {
 	return fmt.Sprintf("%.0f%%", score*100)
 }
 
+// ProgressPercent formats a 0.0-1.0 progress value as a percentage string.
+// Alias for ScorePercent for semantic clarity.
+func ProgressPercent(progress float64) string {
+	return ScorePercent(progress)
+}
+
 // StatusIcon returns an emoji icon for common status values.
 // Supports: completed, done, in_progress, active, planned, pending, future, blocked, at_risk.
 func StatusIcon(status string) string {
 	switch strings.ToLower(strings.ReplaceAll(status, " ", "_")) {
-	case "completed", "done", "complete":
+	case "completed", "done", "complete", "achieved":
 		return "✅"
 	case "in_progress", "active", "in-progress", "inprogress":
 		return "🚧"
-	case "planned", "pending", "todo":
+	case "planned", "pending", "todo", "planning":
 		return "📋"
-	case "future", "backlog", "idea":
+	case "future", "backlog", "idea", "proposed", "not_started":
 		return "💡"
-	case "blocked", "failed":
+	case "blocked", "failed", "missed":
 		return "🚫"
-	case "at_risk", "at-risk", "atrisk", "warning":
+	case "at_risk", "at-risk", "atrisk", "warning", "behind":
 		return "⚠️"
 	case "cancelled", "canceled", "dropped":
 		return "❌"
@@ -117,6 +127,39 @@ func StatusIcon(status string) string {
 	default:
 		return "○"
 	}
+}
+
+// StatusEmoji returns a text-based status indicator (not emoji) for use in
+// contexts where emoji may not render well. Used by V2MOM and similar documents.
+func StatusEmoji(status string) string {
+	switch strings.ToLower(strings.ReplaceAll(status, " ", "_")) {
+	case "completed", "done", "complete", "achieved":
+		return "[DONE]"
+	case "in_progress", "active", "in-progress", "inprogress":
+		return "[IN PROGRESS]"
+	case "at_risk", "at-risk", "atrisk", "behind":
+		return "[AT RISK]"
+	case "planning":
+		return "[PLANNING]"
+	case "not_started", "proposed", "pending":
+		return "[NOT STARTED]"
+	case "cancelled", "canceled", "missed":
+		return "[CANCELLED]"
+	case "on_hold", "on-hold", "onhold", "paused":
+		return "[ON HOLD]"
+	case "blocked":
+		return "[BLOCKED]"
+	default:
+		return ""
+	}
+}
+
+// StatusLabel returns a human-readable label for a status value.
+// Converts snake_case/kebab-case to Title Case.
+func StatusLabel(status string) string {
+	s := strings.ReplaceAll(status, "_", " ")
+	s = strings.ReplaceAll(s, "-", " ")
+	return strings.Title(s) //nolint:staticcheck
 }
 
 // PriorityIcon returns an icon for priority levels.
@@ -133,6 +176,31 @@ func PriorityIcon(priority string) string {
 		return "🟢"
 	default:
 		return "⚪"
+	}
+}
+
+// PriorityLabel returns a human-readable label for a priority value.
+// Converts P0/P1/P2/P3 to descriptive labels.
+func PriorityLabel(priority string) string {
+	switch strings.ToUpper(priority) {
+	case "P0":
+		return "P0 (Critical)"
+	case "P1":
+		return "P1 (High)"
+	case "P2":
+		return "P2 (Medium)"
+	case "P3":
+		return "P3 (Low)"
+	case "CRITICAL":
+		return "Critical"
+	case "HIGH":
+		return "High"
+	case "MEDIUM":
+		return "Medium"
+	case "LOW":
+		return "Low"
+	default:
+		return priority
 	}
 }
 
