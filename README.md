@@ -1,7 +1,12 @@
 # Structured Docs
 
-[![Go Reference](https://pkg.go.dev/badge/github.com/grokify/structureddocs.svg)](https://pkg.go.dev/github.com/grokify/structureddocs)
-[![Go Report Card](https://goreportcard.com/badge/github.com/grokify/structureddocs)](https://goreportcard.com/report/github.com/grokify/structureddocs)
+[![Build Status][build-status-svg]][build-status-url]
+[![Lint Status][lint-status-svg]][lint-status-url]
+[![Coverage][coverage-svg]][coverage-url]
+[![Go Report Card][goreport-svg]][goreport-url]
+[![Docs][docs-godoc-svg]][docs-godoc-url]
+[![Visualization][viz-svg]][viz-url]
+[![License][license-svg]][license-url]
 
 Shared utilities for structured document projects. This package ensures consistency across:
 
@@ -217,3 +222,20 @@ Contributions are welcome. Please ensure:
 ## License
 
 MIT License
+
+ [build-status-svg]: https://github.com/grokify/structureddocs/actions/workflows/ci.yaml/badge.svg?branch=main
+ [build-status-url]: https://github.com/grokify/structureddocs/actions/workflows/ci.yaml
+ [lint-status-svg]: https://github.com/grokify/structureddocs/actions/workflows/lint.yaml/badge.svg?branch=main
+ [lint-status-url]: https://github.com/grokify/structureddocs/actions/workflows/lint.yaml
+ [coverage-svg]: https://img.shields.io/badge/coverage-96.1%25-brightgreen
+ [coverage-url]: https://github.com/grokify/structureddocs
+ [goreport-svg]: https://goreportcard.com/badge/github.com/grokify/structureddocs
+ [goreport-url]: https://goreportcard.com/report/github.com/grokify/structureddocs
+ [docs-godoc-svg]: https://pkg.go.dev/badge/github.com/grokify/structureddocs
+ [docs-godoc-url]: https://pkg.go.dev/github.com/grokify/structureddocs
+ [viz-svg]: https://img.shields.io/badge/visualizaton-Go-blue.svg
+ [viz-url]: https://mango-dune-07a8b7110.1.azurestaticapps.net/?repo=grokify%2Fstructureddocs
+ [loc-svg]: https://tokei.rs/b1/github/grokify/structureddocs
+ [repo-url]: https://github.com/grokify/structureddocs
+ [license-svg]: https://img.shields.io/badge/license-MIT-blue.svg
+ [license-url]: https://github.com/grokify/structureddocs/blob/master/LICENSE
